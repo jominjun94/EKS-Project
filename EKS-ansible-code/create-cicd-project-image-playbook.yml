@@ -1,0 +1,16 @@
+- hosts: slave
+
+  tasks:
+  - name: create a docker image with deployed waf file
+    command: docker build -t jch941022/eks-project .
+    args: 
+        chdir: /home/ubuntu/workspace/test_docker-hub/facam-backend
+    
+  - name: push the image on Docker Hub
+    command: docker push jch941022/eks-project
+
+  - name: remove the docker image from the ansible server
+    command: docker rmi jch941022/eks-project
+    ignore_errors: yes
+
+    

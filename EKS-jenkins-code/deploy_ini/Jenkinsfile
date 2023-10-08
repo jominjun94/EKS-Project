@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout Code') {
+            steps {
+                script {
+                    // GitHub 리포지토리에서 ini 파일을 가져옵니다.
+                    def configFile = checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: '*/master']], // 브랜치를 적절히 설정하세요.
+                        userRemoteConfigs: [[url: 'https://github.com/yourusername/yourrepository.git']]
+                    ])
+                    
+                    // ini 파일을 읽고 필요한 환경 변수를 가져옵니다.
+                    def ini = new IniFile(new File("${configFile}/config.ini"))
+                    def envName = ini.get(env.BUILD_TYPE, 'env_name')
+                    
+                    // Jenkins 환경 변수로 설정합니다.
+                    env.MY_ENVIRONMENT = envName
+                }
+            }
+        }
+        
+        stage('Build and Deploy') {
+            steps {
+                script {
+                    // 가져온 환경 변수를 사용하여 빌드 및 배포 작업을 수행합니다.
+                    if (env.MY_ENVIRONMENT == 'dev') {
+                        // dev 환경 변수에 따른 작업 수행
+                    } else if (env.MY_ENVIRONMENT == 'operate') {
+                        // operate 환경 변수에 따른 작업 수행
+                    } else {
+                        error("Unknown environment: ${env.MY_ENVIRONMENT}")
+                    }
+                }
+            }
+        }
+    }
+}

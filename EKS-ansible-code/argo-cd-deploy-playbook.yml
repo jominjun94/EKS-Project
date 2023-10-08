@@ -1,0 +1,10 @@
+- name: Create pods using deployment 
+  hosts: kubernetes 
+  #k8s-cicd-service-playbook , k8s-cicd-deployment-playbook 통합하여 argocd로 보냅니다.
+  tasks: 
+  - name: git clone gitops-repository argocd
+    command: git clone https://github.com/jominjun94/gitops-repository.git
+
+  - name: create a deployment
+    command: kubectl apply -f service/eks-manifest/application.yaml
+

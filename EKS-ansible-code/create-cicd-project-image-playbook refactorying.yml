@@ -1,0 +1,30 @@
+---
+- name: Build and push Docker image
+  hosts: slave
+  tasks:
+    - name: Set Docker image name and directory
+      set_fact:
+        docker_image_name: "jch941022/eks-project"
+        docker_image_directory: "/home/ubuntu/workspace/test_docker-hub/facam-backend"
+
+    - name: Build Docker image
+      docker_image:
+        path: "{{ docker_image_directory }}"
+        name: "{{ docker_image_name }}"
+        state: build
+      register: docker_build_result
+
+    - name: Push Docker image to Docker Hub
+      docker_image_push:
+        name: "{{ docker_image_name }}"
+      when: docker_build_result.changed
+
+    - name: Remove local Docker image
+      docker_image:
+        name: "{{ docker_image_name }}"
+        state: absent
+      when: docker_build_result.changed
+
+  vars:
+    docker_image_name: ""
+    docker_image_directory: ""
