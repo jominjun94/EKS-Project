@@ -1,49 +1,35 @@
+# AWS argo rollout 설치 
 
-# service account 생성
-eksctl create iamserviceaccount \
---namespace=kube-system \
---cluster=my-eks-cluster \
---name=aws-load-balancer-controller \
---attach-policy-arn=arn:aws:iam::057059131310:policy/my-alb-iam-policy \
---override-existing-serviceaccounts \
---approve
-
-eksctl utils associate-iam-oidc-provider --region=ap-northeast-2 --cluster=my-eks-cluster --approve 
-
-eksctl create iamserviceaccount \
---namespace=kube-system \
---cluster=my-eks-cluster \
---name=aws-load-balancer-controller \
---attach-policy-arn=arn:aws:iam::057059131310:policy/my-alb-iam-policy \
---override-existing-serviceaccounts \
---approve
+## namespace 생성
 
 
-# policy 권한 추가
-cat << EOF > alb-iam-patch.json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": "elasticloadbalancing:AddTags",
-            "Effect": "Allow",
-            "Resource": "*",
-            "Sid": "patch"
-        }
-    ]
-}
-EOF
+```
+$ kubectl create namespace argo-rollouts
+$ kubectl apply -f install.yaml -n argo-rollouts
+```
 
-aws iam put-role-policy --role-name eksctl-my-eks-cluster-addon-iamserviceaccoun-Role1-1QTIMKUJAP5LS --policy-name my-alb-iam-policy --policy-document file://alb-iam-patch.json
+## Argo Rollout Dashboard URL
 
 
-# helm 설치
-curl -L https://git.io/get_helm.sh | bash -s -- --version v3.8.
-helm repo add eks https://aws.github.io/eks-charts
+```
+- http://localhost:3100
+```
+## ArgoCD CLI로 로그인 수행
 
-# aws-load-balancer 설치
-helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
--n kube-system \
---set clusterName=my-eks-cluster \
---set serviceAccount.create=false \
---set serviceAccount.name=aws-load-balancer-controller
+- ArgoCD 배포후 최초 admin 계정 비밀번호 확인
+- 접속후 배포된 rollout Object 확인 방법
+- 우측 상단에 있는 "NS:" 부분에 명시된 드롭다운 리스트 클릭
+- 드롭다운 리스트 중 rollout object가 배포된 NS(Namespace) 선택
+```
+$ kubectl -n argocd get secret argocd-initial-admin-secret -o 
+jsonpath="{.data.password}" | base64 -d; echo
+```
+## ArgoCD 접속을 위한 External-IP 확인
+
+argocd-server의 External-IP를 확인
+```
+$ kubectl get svc -n argocd
+```
+## ArgoCD 접속 후 manifest 깃허브 레파지토리 등록
+
+https://github.com/jominjun94/service-repository 등록 후 수정 배포

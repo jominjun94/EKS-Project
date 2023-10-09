@@ -32,14 +32,23 @@
 
 ## ⚙️ 주요 기능
 ### aws 클라우드 환경 구축
-- 구성환경 --> 
-#### 회원가입 - <a href="https://github.com/chaehyuenwoo/SpringBoot-Project-MEGABOX/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(Member)" >상세보기 - WIKI 이동</a>
 
-### Terraform 구성 
-- aws 환경을 Terraform 코드를 통해 구축
-- VPC, SUBNET, NATGATE, INTERNET, EKS, RDS, EFS, EC2, ROLE, POLICY, S3, DYNMD, security group 등 
+### Terraform 구성 - <a href="https://github.com/jominjun94/EKS-Project/tree/main/EKS-terrafom-code" > 코드 상세 보기 </a>
 
-### Jenkins pipeline 
+
+### ansible - <a href="https://github.com/jominjun94/EKS-Project/tree/main/EKS-ansible-code" > 코드 상세 보기 </a>
+
+
+
+### alb - <a href="https://github.com/jominjun94/EKS-Project/tree/main/EKS-alb-code" > 코드 상세 보기 </a>
+
+
+### EKS-efs-code - <a href="https://github.com/jominjun94/EKS-Project/tree/main/EKS-efs-code" > 코드 상세 보기 </a>
+
+
+
+### Jenkins pipeline - <a href="https://github.com/jominjun94/EKS-Project/tree/main/EKS-jenkins-code" > 코드 상세 보기 </a> 
+
 - Jenkins + Ansible 를 활용하여 CI/CD Pipeline 구축
 - springboot + docker hub 빌드/배포 
 
@@ -48,24 +57,30 @@
 - springboot + docker hub 빌드/배포 
 - loadbalacer, ingress, deployment, pv, pvc, serviceaccount, pod, service 등
 
+https://github.com/jominjun94/EKS-Project/tree/main/EKS-k8s-code
+
+
 ### EKS vpc 이중화
 - pod 할당 되는 IP 자원에 대한 부족한 현상이 발생을 대비
 - pod의 할당 되는 IP는 vpc 이중화를 통해 IP 할당
 
-### Argocd
+### Argo cd - <a href="https://github.com/jominjun94/EKS-Project/tree/main/EKS-argo-cd-code" > 코드 상세 보기 </a> 
+
+### Argo rollout- <a href="https://github.com/jominjun94/EKS-Project/tree/main/EKS-argo-rollout-code" > 코드 상세 보기 </a> 
+
+
 - Argocd를 활용하여, gitops 환경 구축
 - pod 관리 등 다양한 소스를 모니터링 하며, 코드로 쿠버네티스를 관리
 
-### HPA + autoscaling
+### HPA + autoscaling- <a href="https://github.com/jominjun94/EKS-Project/tree/main/EKS-HPA-code" > 코드 상세 보기 </a> 
+
 - HPA를 구현하여, 파드의 오토스케일링
 - aws autoscaling의 node 오토스케일링 
 
-### prometheus + grafana
+### prometheus + grafana- <a href="https://github.com/jominjun94/EKS-Project/tree/main/EKS-prome%2Bgrapa" > 코드 상세 보기 </a> 
+
 - metric 서버를 구축하고 metric를 수집하여, 모니터링 환경 구축
 - 그라파나를 활용하여 시각화 구성
-
-
-...
 
 
 

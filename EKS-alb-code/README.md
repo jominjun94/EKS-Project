@@ -1,5 +1,15 @@
 
-# service account 생성
+
+# AWS ALB Controller + Ingress ALB 
+
+1. 전체 Subnet 적용 Tag 
+- Key : kubernetes.io/cluster/<EKS Cluster명>
+- Value : shared
+2. Public Subnet만 적용하는 Tag
+- Key : kubernetes.io/role/elb
+- Value : 1
+
+## 1. service account 생성
 eksctl create iamserviceaccount \
 --namespace=kube-system \
 --cluster=my-eks-cluster \
@@ -19,7 +29,7 @@ eksctl create iamserviceaccount \
 --approve
 
 
-# policy 권한 추가
+## 2. policy 권한 추가 + (테라폼 alb 권한)
 cat << EOF > alb-iam-patch.json
 {
     "Version": "2012-10-17",
@@ -34,16 +44,20 @@ cat << EOF > alb-iam-patch.json
 }
 EOF
 
-aws iam put-role-policy --role-name eksctl-my-eks-cluster-addon-iamserviceaccoun-Role1-1QTIMKUJAP5LS --policy-name my-alb-iam-policy --policy-document file://alb-iam-patch.json
+aws iam put-role-policy --role-name [role name] --policy-name [policy name] --policy-document file://alb-iam-patch.json
 
 
-# helm 설치
+## 3. helm 설치
 curl -L https://git.io/get_helm.sh | bash -s -- --version v3.8.
 helm repo add eks https://aws.github.io/eks-charts
 
-# aws-load-balancer 설치
+## 4. aws-load-balancer 설치
 helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
 -n kube-system \
 --set clusterName=my-eks-cluster \
 --set serviceAccount.create=false \
 --set serviceAccount.name=aws-load-balancer-controller
+
+## 5. Ingress 배포
+
+kubectl create ‒f test-ingress.yaml
