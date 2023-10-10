@@ -39,10 +39,15 @@
 ### Terraform 구성 - aws 클라우드 환경 구축 및 EKS 구성
 - https://github.com/jominjun94/EKS-Project/tree/main/EKS-terrafom-code
 
+### EKS VPC 이중화
+- pod 할당 되는 IP 자원에 대한 부족한 현상이 발생을 대비
+- pod의 할당 되는 IP는 vpc 이중화를 통해 IP 할당
+
 ### ANSIBLE 구성
 - https://github.com/jominjun94/EKS-Project/tree/main/EKS-ansible-code
 
-
+### Jenkins pipeline 구성
+- https://github.com/jominjun94/EKS-Project/tree/main/EKS-jenkins-code
 
 ### 어플리케이션 로드밸런서 구성
 - https://github.com/jominjun94/EKS-Project/tree/main/EKS-alb-code
@@ -52,26 +57,15 @@
 - https://github.com/jominjun94/EKS-Project/tree/main/EKS-efs-code
 
 
-
-### Jenkins pipeline 구성
-- https://github.com/jominjun94/EKS-Project/tree/main/EKS-jenkins-code
-
-
-## k8s manifest 구성
+### k8s manifest 구성
 
 - https://github.com/jominjun94/EKS-Project/tree/main/EKS-k8s-code
 
-
-### EKS VPC 이중화
-- pod 할당 되는 IP 자원에 대한 부족한 현상이 발생을 대비
-- pod의 할당 되는 IP는 vpc 이중화를 통해 IP 할당
+### HPA + autoscaling 
+- https://github.com/jominjun94/EKS-Project/tree/main/EKS-HPA-code
 
 ### Argo cd 
 - https://github.com/jominjun94/EKS-Project/tree/main/EKS-argo-cd-code
-
-
-### HPA + autoscaling 
-- https://github.com/jominjun94/EKS-Project/tree/main/EKS-HPA-code
 
 
 ### prometheus + grafana 
