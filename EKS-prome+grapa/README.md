@@ -1,49 +1,70 @@
+[Prometheus]
 
-# service account 생성
-eksctl create iamserviceaccount \
---namespace=kube-system \
---cluster=my-eks-cluster \
---name=aws-load-balancer-controller \
---attach-policy-arn=arn:aws:iam::057059131310:policy/my-alb-iam-policy \
---override-existing-serviceaccounts \
---approve
+ https://easthyeok.tistory.com/16
+ 1. 프로메테우스 배포
+kubectl create namespace monitoring
 
-eksctl utils associate-iam-oidc-provider --region=ap-northeast-2 --cluster=my-eks-cluster --approve 
-
-eksctl create iamserviceaccount \
---namespace=kube-system \
---cluster=my-eks-cluster \
---name=aws-load-balancer-controller \
---attach-policy-arn=arn:aws:iam::057059131310:policy/my-alb-iam-policy \
---override-existing-serviceaccounts \
---approve
+monitoring 네임스페이스 생성
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
 
-# policy 권한 추가
-cat << EOF > alb-iam-patch.json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": "elasticloadbalancing:AddTags",
-            "Effect": "Allow",
-            "Resource": "*",
-            "Sid": "patch"
-        }
-    ]
-}
-EOF
+prometheus-community 차트 리포지토리를 추가
+helm upgrade -i prometheus prometheus-community/prometheus \
+    --namespace monitoring \
+    --set alertmanager.persistentVolume.storageClass="gp2",server.persistentVolume.storageClass="gp2"
 
-aws iam put-role-policy --role-name eksctl-my-eks-cluster-addon-iamserviceaccoun-Role1-1QTIMKUJAP5LS --policy-name my-alb-iam-policy --policy-document file://alb-iam-patch.json
+AWS EBS를 PV로 사용하려면 접근권한을 설정해줘야한다
+ eksctl create iamserviceaccount \
+  --name ebs-csi-controller-sa \
+  --namespace kube-system \
+  --cluster my-cluster \
+  --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+  --approve \
+  --role-only \
+  --role-name AmazonEKS_EBS_CSI_DriverRole
+
+IAM역할생성 
+eksctl create addon --name aws-ebs-csi-driver --cluster my-cluster --service-account-role-arn arn:aws:iam::111122223333:role/AmazonEKS_EBS_CSI_DriverRole --force
+
+alertmanger 수정
+스테이트풀셋에 있는 alertmanger를 클러스터 내부에서 통신하기위해 컨피그 수정
+
+ebs csi 확인 
+eksctl get addon --name aws-ebs-csi-driver --cluster my-cluster
+
+kubectl get pvc -n moritoring | grep prometheus
+
+kubectl get pods -n prometheus
 
 
-# helm 설치
-curl -L https://git.io/get_helm.sh | bash -s -- --version v3.8.
-helm repo add eks https://aws.github.io/eks-charts
 
-# aws-load-balancer 설치
-helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
--n kube-system \
---set clusterName=my-eks-cluster \
---set serviceAccount.create=false \
---set serviceAccount.name=aws-load-balancer-controller
+ingress 통신을 위한 설정
+grafana service 변경 후 ingrss에 추가 작업
+
+ - host: prometheus.dhkim94.com
+    http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prometheus-server
+                port:
+                  number: 80
+  - host: grafana.dhkim94.com
+    http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: grafana
+                port:
+                  number: 80
+
+
+
+
+
+
+
