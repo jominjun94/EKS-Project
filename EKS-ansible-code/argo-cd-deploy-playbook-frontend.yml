@@ -1,0 +1,24 @@
+---
+- name: Deploy Application using Kubernetes
+  hosts: kubernetes
+  gather_facts: no
+
+  tasks:
+    - name: Remove Existing Git Repository
+      shell: rm -rf /path/to/clone/dir
+      become: yes
+      become_user: some_user
+      ignore_errors: yes  # 기존 저장소가 없어도 무시하도록 설정
+
+    - name: Clone GitOps Repository
+      git:
+        repo: https://github.com/jominjun94/gitops-repository.git
+        dest: /path/to/clone/dir
+      become: yes
+      become_user: some_user
+
+    - name: Apply Kubernetes Deployment
+      k8s:
+        state: present
+        definition: /path/to/clone/dir/service/eks-manifest/application.yaml
+      become: yes

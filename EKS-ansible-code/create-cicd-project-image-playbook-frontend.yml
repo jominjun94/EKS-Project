@@ -4,8 +4,8 @@
   tasks:
     - name: Set Docker image name and directory
       set_fact:
-        docker_image_name: "jch941022/eks-project"
-        docker_image_directory: "/home/ubuntu/workspace/test_docker-hub/facam-backend"
+        docker_image_name: "jch941022/eks-project-frontend"
+        docker_image_directory: "/home/ubuntu/workspace/test_docker-hub/facam-frontend"
 
     - name: Build Docker image
       docker_image:

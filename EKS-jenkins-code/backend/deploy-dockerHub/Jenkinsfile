@@ -1,0 +1,73 @@
+pipeline {
+    agent { label 'slave1' }
+    stages {
+        stage('Workspace Clean') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('Preparation') {
+            steps {
+                script {
+                    deleteGitFolderIfExist('/home/ubuntu/workspace/test_docker-hub/facam-backend')
+                    installIfNotInstalled('git')
+                }
+            }
+        }
+        stage('git clone') {
+            steps {
+                script {
+                    sh "git clone https://github.com/kimdragon50/facam-backend.git"
+                }
+            }
+        }
+        stage('Maven Build') {
+            steps {
+                script {
+                    installIfNotInstalled('mvn')
+                    sh """
+                        cd /home/ubuntu/workspace/test_docker-hub/facam-backend
+                        mvn clean
+                        mvn package
+                    """
+                }
+            }
+        }
+        stage('Ansible Deploy docker hub') {
+            steps {
+                script {
+                    installIfNotInstalled('docker')
+                    installIfNotInstalled('ansible')
+                    
+                    sh """
+                        cd /home/ubuntu/workspace/test_docker-hub/facam-backend
+                        git clone https://github.com/jominjun94/ansible_repository.git
+                        cd ansible_repository
+                        mv * ../
+                        cd ..
+                        ansible-playbook create-cicd-project-image-playbook-backend.yml
+                    """
+                }
+            }
+        }
+    }
+}
+
+def installIfNotInstalled(tool) {
+    def toolInstalled = sh(script: "command -v $tool", returnStatus: true)
+    if (toolInstalled != 0) {
+        sh "sudo apt-get update -y"
+        sh "sudo apt-get install $tool -y"
+    }
+}
+
+def deleteGitFolderIfExist(folderPath) {
+    if (fileExists(folderPath)) {
+        sh "rm -rf $folderPath"
+    }
+}
+
+def fileExists(filePath) {
+    def fileCheck = sh(script: "[ -e $filePath ]", returnStatus: true)
+    return fileCheck == 0
+}

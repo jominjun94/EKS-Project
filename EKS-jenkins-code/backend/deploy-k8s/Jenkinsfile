@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     installIfNotInstalled('ansible')
-                    sh "cd /home/ubuntu/workspace/test_docker-hub/ansible_repository && ansible-playbook argo-cd-deploy-playbook.yml"
+                    sh "cd /home/ubuntu/workspace/test_docker-hub/ansible_repository && ansible-playbook argo-cd-deploy-playbook-backend.yml"
                 }
             }
         }

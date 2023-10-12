@@ -9,7 +9,7 @@ pipeline {
         stage('Preparation') {
             steps {
                 script {
-                    deleteGitFolderIfExist('/home/ubuntu/workspace/test_docker-hub/facam-backend')
+                    deleteGitFolderIfExist('/home/ubuntu/workspace/test_docker-hub/facam-frontend')
                     installIfNotInstalled('git')
                 }
             }
@@ -17,22 +17,11 @@ pipeline {
         stage('git clone') {
             steps {
                 script {
-                    sh "git clone https://github.com/kimdragon50/facam-backend.git"
+                    sh "git clone https://github.com/kimdragon50/facam-frontend.git"
                 }
             }
         }
-        stage('Maven Build') {
-            steps {
-                script {
-                    installIfNotInstalled('mvn')
-                    sh """
-                        cd /home/ubuntu/workspace/test_docker-hub/facam-backend
-                        mvn clean
-                        mvn package
-                    """
-                }
-            }
-        }
+
         stage('Ansible Deploy docker hub') {
             steps {
                 script {
@@ -40,12 +29,12 @@ pipeline {
                     installIfNotInstalled('ansible')
                     
                     sh """
-                        cd /home/ubuntu/workspace/test_docker-hub/facam-backend
+                        cd /home/ubuntu/workspace/test_docker-hub/facam-frontend
                         git clone https://github.com/jominjun94/ansible_repository.git
                         cd ansible_repository
                         mv * ../
                         cd ..
-                        ansible-playbook create-cicd-project-image-playbook.yml
+                        ansible-playbook create-cicd-project-image-playbook-frontend.yml
                     """
                 }
             }
