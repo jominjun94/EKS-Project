@@ -69,8 +69,7 @@
 
 
 ### prometheus + grafana 
-- [https://github.com/jominjun94/EKS-Project/tree/main/EKS-prome%2Bgrapa](https://github.com/jominjun94/EKS-Project/tree/main/EKS-prometheus%2Bgrafana)https://github.com/jominjun94/EKS-Project/tree/main/EKS-prometheus%2Bgrafana
-
+- https://github.com/jominjun94/EKS-Project/tree/main/EKS-prometheus%2Bgrafana
 
 
 
