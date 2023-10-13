@@ -3,6 +3,21 @@
 - docker로 구성된 jenkins master는 빌드 수행 시 jenkins node로 전달합니다.
 - jenkins script를 활용하여, jenkins를 구성하고 관리합니다.  
 
+Springboot를 활용한 간단한 backend 구성 + 테스트 진행 시 postman 사용
+Jenkins master 와 jenkins node를 사용하여 구성
+
+CI
+Jenkins master 에서 node server 를 등록 후  빌드 진행 시 node server에서 진행
+빌드 완료 이후 ansible을 활용하여, docker image 생성하여 docker hub PUSH 진행
+
+CD
+Jenkins master 에서 node server를 호출
+ ansible을 활용하여, kubectl 설치 된 server로 deployment 실행
+Deployment 실행 시 docker hub에 저장된 image를 container로 실행
+EKS 배포 확인 
+![image](https://github.com/jominjun94/EKS-Project/assets/72008472/0072efe8-3d12-48a2-a11e-b369e474c3a2)
+
+
 ## jenkins master + slave 구성 
 
 ### 1. deploy-dockerHub
