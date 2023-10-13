@@ -15,7 +15,7 @@ Jenkins master 에서 node server를 호출
  ansible을 활용하여, kubectl 설치 된 server로 deployment 실행
 Deployment 실행 시 docker hub에 저장된 image를 container로 실행
 EKS 배포 확인 
-![image](https://github.com/jominjun94/EKS-Project/assets/72008472/0072efe8-3d12-48a2-a11e-b369e474c3a2)
+
 
 
 ## jenkins master + slave 구성 
