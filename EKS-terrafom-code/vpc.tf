@@ -24,7 +24,7 @@ resource "aws_vpc_ipv4_cidr_block_association" "my-sencond-vpc" {
 resource "aws_internet_gateway" "my-ig"{
   vpc_id = aws_vpc.my-vpc.id
   tags = {
-    Name = "my-ig"
+    Name = "my-igw"
   }
 }
 

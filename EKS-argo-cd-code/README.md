@@ -1,19 +1,5 @@
-# AWS argo rollout 설치 
+# k8s manifest 를 github 과 agro 를 활용하여, 코드로 관리
 
-## namespace 생성
-
-
-```
-$ kubectl create namespace argo-rollouts
-$ kubectl apply -f install.yaml -n argo-rollouts
-```
-
-## Argo Rollout Dashboard URL
-
-
-```
-- http://localhost:3100
-```
 ## ArgoCD CLI로 로그인 수행
 
 - ArgoCD 배포후 최초 admin 계정 비밀번호 확인
