@@ -16,10 +16,14 @@
 
 
 </br>
-
-
-
-# jenkins 설치 
+# jenkins 설치 - 도커 사용 o 
+```
+docker pull jenkins/jenkins:lts
+sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home --name jenkins -u root jenkins/jenkins:lts
+sudo docker exec -it jenkins /bin/bash
+cat /var/jenkins_home/secrets/initialAdminPassword
+```
+# jenkins 설치 - 도커 사용 x 서버에 직접 설치
 ```
 sudo apt-get update
 sudo apt-get install openjdk-11-jdk
