@@ -43,6 +43,11 @@
 - pod 할당 되는 IP 자원에 대한 부족한 현상이 발생을 대비
 - pod의 할당 되는 IP는 vpc 이중화를 통해 IP 할당
 
+### Backend springboot 구성
+- springboot + mysql + postman을 활용한 backend 구성
+- 빌드 진행 이후 docker file로 image 생성 후 docker hub에 등록
+https://github.com/jominjun94/EKS-Project/tree/main/Backend-springboot
+
 ### ANSIBLE 구성
 - https://github.com/jominjun94/EKS-Project/tree/main/EKS-ansible-code
 
