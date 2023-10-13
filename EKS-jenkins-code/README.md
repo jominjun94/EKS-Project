@@ -1,10 +1,10 @@
 # jenkins
+- Springboot를 활용한 간단한 backend 구성 + 테스트 진행 시 postman 사용
 - docker 와 docker volume 를 활용하여, 젠킨스 마스터를 구성합니다. 
 - docker로 구성된 jenkins master는 빌드 수행 시 jenkins node로 전달합니다.
 - jenkins script를 활용하여, jenkins를 구성하고 관리합니다.  
 
-Springboot를 활용한 간단한 backend 구성 + 테스트 진행 시 postman 사용
-Jenkins master 와 jenkins node를 사용하여 구성
+
 
 CI
 Jenkins master 에서 node server 를 등록 후  빌드 진행 시 node server에서 진행
