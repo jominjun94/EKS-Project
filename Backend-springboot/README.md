@@ -1,4 +1,4 @@
-# backend
+# backend springboot
 
 ### JDK Version
 - jDK 11 이상
@@ -13,7 +13,7 @@ spring.jpa.hibernate.ddl-auto=update
 ```
 
 
-### MySQL DB 
+### MySQL DB -RDS 연결
 - Create DB Name : employee
 - (생성할 필요 없음) Create Table : employee
 - (생성할 필요 없음) Columns : id, email_address, first_name, last_name
