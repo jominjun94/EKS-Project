@@ -1,4 +1,4 @@
-![e82e7444834d0e24](https://github.com/jominjun94/EKS-Project/assets/72008472/711cbb53-0bbf-4ed4-8810-184f776c67a9)
+
 # Metrics Server 설치
 ```
 $ kubectl apply ‒f metrics-server.yaml
