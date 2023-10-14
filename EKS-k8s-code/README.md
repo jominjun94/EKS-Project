@@ -5,4 +5,4 @@
 - 등록한 repository의 manifest 파일을 활용하여, gitops 관리를 하게 됩니다. 
 - manifest를 코드형 관리를 합니다.
 
-- ![스크린샷 2023-10-15 001612](https://github.com/jominjun94/EKS-Project/assets/72008472/00ced6ba-8f5d-4340-91d8-a136c9540d6a)
+ ![스크린샷 2023-10-15 001612](https://github.com/jominjun94/EKS-Project/assets/72008472/00ced6ba-8f5d-4340-91d8-a136c9540d6a)
