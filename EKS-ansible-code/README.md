@@ -1,6 +1,8 @@
 
 # ansible-playbook 
 
+## 젠킨스 파이프라인 호출
+
 ## 1. create-cicd-project-image-playbook 
 ### 빌드 후 docker image -> docker hub push
 Build Docker image </br>
