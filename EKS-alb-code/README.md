@@ -1,6 +1,10 @@
 
 
 # AWS ALB Controller + Ingress ALB 적용 
+
+![78033a9efcacd9c4](https://github.com/jominjun94/EKS-Project/assets/72008472/efdaa1f8-b6b4-4911-9e49-2b054cc57279)
+
+
 ```
 1. 전체 Subnet 적용 Tag 
 - Key : kubernetes.io/cluster/<EKS Cluster명>
