@@ -43,7 +43,7 @@ sudo apt-get install jenkins
 sudo systemctl start jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
-
+![스크린샷 2023-10-14 234132](https://github.com/jominjun94/EKS-Project/assets/72008472/aa467a65-f8a3-44e3-9828-23f9f7d76086)
  
 
 ## jenkins 서버 내 설치 
