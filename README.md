@@ -1,5 +1,5 @@
 # AWS Cloud를 활용한 DEVOPS PROJECT
- AWS Cloud 환경에 EKS를 활용하여 DEVOPS 환경을 구축한 프로젝트
+
 
 
 ![조민준_aws_cloud](https://github.com/jominjun94/EKS-Project/assets/72008472/3ff33709-a072-4a5f-9551-59b535bc3e57)
