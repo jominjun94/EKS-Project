@@ -1,10 +1,5 @@
 # AWS Cloud를 활용한 DEVOPS PROJECT
 
-![image](https://github.com/jominjun94/EKS-Project/assets/72008472/34be327e-f6dc-4cd8-ab43-899d07aaf771)
-
-
-
-
 ![조민준_aws_cloud](https://github.com/jominjun94/EKS-Project/assets/72008472/3ff33709-a072-4a5f-9551-59b535bc3e57)
 ## 💻 개발 환경
 
