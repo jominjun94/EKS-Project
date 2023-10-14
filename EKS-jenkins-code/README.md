@@ -28,6 +28,7 @@ sudo docker run -d -p 8080:8080 -v /jenkins:/var/jenkins_home --name jenkins -u 
 sudo docker exec -it jenkins /bin/bash
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
+![스크린샷 2023-10-14 235956](https://github.com/jominjun94/EKS-Project/assets/72008472/b5e1308c-a7fd-466c-8257-f5d18fff2eaa)
 
 # jenkins 설치 - 도커 사용 x 서버에 직접 설치
 ```
