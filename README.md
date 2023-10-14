@@ -1,5 +1,6 @@
 # AWS Cloud를 활용한 DEVOPS PROJECT
 
+![image](https://github.com/jominjun94/EKS-Project/assets/72008472/34be327e-f6dc-4cd8-ab43-899d07aaf771)
 
 
 
