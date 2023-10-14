@@ -22,10 +22,12 @@
 ### 1. deploy-dockerHub
 - jenkins를 활용하여, maven 빌드를 진행합니다. 
 - 빌드 이후 나온 jar 파일을 image로 구성하여 ansible를 사용하여 docker hub에 이미지를 저장합니다. 
-
+- https://github.com/jominjun94/EKS-Project/blob/main/EKS-jenkins-code/backend/deploy-dockerHub/Jenkinsfile
+- https://github.com/jominjun94/EKS-Project/blob/main/EKS-ansible-code/create-cicd-project-image-playbook-backend.yml
 ### 2. deploy-k8s
- - ansible playbook 를 깃헙에서 clone 이후 ec2 console 환경으로 이동시켜 kubectl 를 사용하여 EKS에 배포합니다. 
-
+- ansible playbook 를 깃헙에서 clone 이후 ec2 console 환경으로 이동시켜 kubectl 를 사용하여 EKS에 배포합니다. 
+- https://github.com/jominjun94/EKS-Project/blob/main/EKS-jenkins-code/backend/deploy-k8s/Jenkinsfile
+- https://github.com/jominjun94/EKS-Project/blob/main/EKS-ansible-code/argo-cd-deploy-playbook-backend.yml
 
 </br>
 
