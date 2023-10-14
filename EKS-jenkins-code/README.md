@@ -1,8 +1,6 @@
 # jenkins
 
 
-![4bdbbad4397c1522](https://github.com/jominjun94/EKS-Project/assets/72008472/4fa923b0-5817-447e-82f2-852c38344595)
-
 - Springboot를 활용한 간단한 backend 구성 + 테스트 진행 시 postman 사용
 - docker 와 docker volume 를 활용하여, 젠킨스 마스터를 구성합니다. 
 - docker로 구성된 jenkins master는 빌드 수행 시 jenkins node로 전달합니다.
@@ -12,7 +10,7 @@
 
 
 ## jenkins master + slave 구성 
-
+![4bdbbad4397c1522](https://github.com/jominjun94/EKS-Project/assets/72008472/4fa923b0-5817-447e-82f2-852c38344595)
 ### 1. deploy-dockerHub
 - jenkins를 활용하여, maven 빌드를 진행합니다. 
 - 빌드 이후 나온 jar 파일을 image로 구성하여 ansible를 사용하여 docker hub에 이미지를 저장합니다. 
