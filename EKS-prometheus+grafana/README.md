@@ -17,6 +17,7 @@ helm upgrade -i prometheus prometheus-community/prometheus \
     --namespace monitoring \
     --set alertmanager.persistentVolume.storageClass="gp2",server.persistentVolume.storageClass="gp2"
 ```
+![스크린샷 2023-10-15 001844](https://github.com/jominjun94/EKS-Project/assets/72008472/b127ef83-199f-4c6f-bcc1-5b8f6738ed65)
 
 ## AWS EBS 접근권한
 ```
