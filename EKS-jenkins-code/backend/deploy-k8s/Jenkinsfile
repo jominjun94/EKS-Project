@@ -1,11 +1,11 @@
 pipeline {
-    agent { label 'slave1' }
+    agent { label 'slave' }
     stages {
 
         stage('Preparation') {
             steps {
                 script {
-                    deleteGitFolderIfExist('/home/ubuntu/workspace/test_docker-hub/ansible_repository')
+                    deleteGitFolderIfExist('/home/ubuntu/slave/workspace/slave/ansible_repository')
                     installIfNotInstalled('git')
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     installIfNotInstalled('ansible')
-                    sh "cd /home/ubuntu/workspace/test_docker-hub/ansible_repository && ansible-playbook argo-cd-deploy-playbook-backend.yml"
+                    sh "cd /home/ubuntu/slave/workspace/slave/ansible_repository && ansible-playbook argo-cd-deploy-playbook.yml"
                 }
             }
         }

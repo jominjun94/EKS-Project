@@ -18,21 +18,3 @@ spec:
               name: eks-project-service
               port:
                 number: 80
-    - http:
-        paths:
-        - path: /prometheus
-          pathType: Prefix
-          backend:
-            service:
-              name: prometheus-server
-              port:
-                number: 80
-    - http:
-        paths:
-        - path: /grafana
-          pathType: Prefix
-          backend:
-            service:
-              name: grafana
-              port:
-                number: 80
