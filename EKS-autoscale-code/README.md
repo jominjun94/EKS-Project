@@ -2,6 +2,7 @@
 
 ## AWS Autoscaling Group내 TAG 설정
 
+![tmzp](https://github.com/jominjun94/EKS-Project/assets/72008472/8a69ad08-6196-40c5-ad3d-18d5f7b49474)
 
 ```
 1. Cluster Autoscaler Tag1 
