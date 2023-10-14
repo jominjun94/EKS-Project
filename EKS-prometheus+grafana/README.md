@@ -1,7 +1,5 @@
 # Prometheus
 
-![0716f0555b8ee15c](https://github.com/jominjun94/EKS-Project/assets/72008472/4de11f8c-a987-45af-8ae2-ed56ee98815b)
-
 ### 메트릭서버 설치는 hpa 사용 시 설치 완료
 
 ## 프로메테우스 배포
@@ -37,7 +35,7 @@ eksctl create iamserviceaccount \
   ```
 
 # Grafana
-
+![0716f0555b8ee15c](https://github.com/jominjun94/EKS-Project/assets/72008472/4de11f8c-a987-45af-8ae2-ed56ee98815b)
 ## 그라파나 배포
 ### ingress를 사용하여 프로메테우스와 그라파나를 접근
  
