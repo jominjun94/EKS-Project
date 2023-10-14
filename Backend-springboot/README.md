@@ -31,7 +31,7 @@ mvn clean
 mvn package
 ```
 
-### java 
+### java - docker 관리
 ```
 java -jar employee-management-backend-0.0.1-SNAPSHOT.jar
 ```
