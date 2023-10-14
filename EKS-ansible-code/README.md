@@ -14,3 +14,6 @@ Remove local Docker image</br>
 Remove Existing Git Repository</br>
 Clone GitOps Repository</br>
 Apply Kubernetes Deployment</br>
+
+![스크린샷 2023-10-15 000234](https://github.com/jominjun94/EKS-Project/assets/72008472/4b234572-c8ac-4579-8c07-76cfacef6058)
+![스크린샷 2023-10-15 000241](https://github.com/jominjun94/EKS-Project/assets/72008472/55e0eed3-835f-43f7-8b96-bb7d376b7ba7)
