@@ -1,9 +1,13 @@
 # jenkins
+
+
+![4bdbbad4397c1522](https://github.com/jominjun94/EKS-Project/assets/72008472/4fa923b0-5817-447e-82f2-852c38344595)
+
 - Springboot를 활용한 간단한 backend 구성 + 테스트 진행 시 postman 사용
 - docker 와 docker volume 를 활용하여, 젠킨스 마스터를 구성합니다. 
 - docker로 구성된 jenkins master는 빌드 수행 시 jenkins node로 전달합니다.
 - jenkins script를 활용하여, jenkins를 구성하고 관리합니다.  
-![4bdbbad4397c1522](https://github.com/jominjun94/EKS-Project/assets/72008472/4fa923b0-5817-447e-82f2-852c38344595)
+
 
 ## jenkins master + slave 구성 
 
