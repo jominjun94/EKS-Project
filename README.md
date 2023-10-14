@@ -74,6 +74,8 @@
 ### prometheus + grafana 
 - https://github.com/jominjun94/EKS-Project/tree/main/EKS-prometheus%2Bgrafana
 
+### EKS
+![eks](https://github.com/jominjun94/EKS-Project/assets/72008472/5ee6b22f-3201-48a3-92ce-4f3e9c47e4cb)
 
 
 
