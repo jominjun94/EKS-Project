@@ -11,13 +11,14 @@
 
 ## jenkins master + slave 구성 
 
-# 젠킨스 파이프 라인
+### 젠킨스 파이프 라인
 
 ![4bdbbad4397c1522](https://github.com/jominjun94/EKS-Project/assets/72008472/4fa923b0-5817-447e-82f2-852c38344595)
 
-# 젠킨스 노드 구성
+### 젠킨스 노드 구성
 
 ![스크린샷 2023-10-15 001039](https://github.com/jominjun94/EKS-Project/assets/72008472/531d1540-2e1e-4134-a712-9c87c43f9a26)
+
 ### 1. deploy-dockerHub
 - jenkins를 활용하여, maven 빌드를 진행합니다. 
 - 빌드 이후 나온 jar 파일을 image로 구성하여 ansible를 사용하여 docker hub에 이미지를 저장합니다. 
