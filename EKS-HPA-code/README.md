@@ -1,4 +1,3 @@
-![스크린샷 2023-10-15 002129](https://github.com/jominjun94/EKS-Project/assets/72008472/b65b293a-3bb5-408e-99c6-5bf3af68ddd5)
 
 # Metrics Server 설치
 ```
