@@ -1,30 +1,17 @@
----
-- name: Build and push Docker image
-  hosts: slave
+- hosts: slave
+
   tasks:
-    - name: Set Docker image name and directory
-      set_fact:
-        docker_image_name: "jch941022/eks-project-backend"
-        docker_image_directory: "/home/ubuntu/workspace/test_docker-hub/facam-backend"
+  - name: create a docker image with deployed waf file
+    command: docker build -t jch941022/1005 .
+    args: 
+        chdir: /home/ubuntu/slave/workspace/tsesr1/spring_repository
+    
+  - name: push the image on Docker Hub
+    command: docker push jch941022/1005
 
-    - name: Build Docker image
-      docker_image:
-        path: "{{ docker_image_directory }}"
-        name: "{{ docker_image_name }}"
-        state: build
-      register: docker_build_result
+  - name: remove the docker image from the ansible server
+    command: docker rmi jch941022/1005
+    ignore_errors: yes
 
-    - name: Push Docker image to Docker Hub
-      docker_image_push:
-        name: "{{ docker_image_name }}"
-      when: docker_build_result.changed
+    
 
-    - name: Remove local Docker image
-      docker_image:
-        name: "{{ docker_image_name }}"
-        state: absent
-      when: docker_build_result.changed
-
-  vars:
-    docker_image_name: ""
-    docker_image_directory: ""
