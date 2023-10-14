@@ -22,6 +22,7 @@ $ kubectl get svc -n argocd
 ## ArgoCD 접속 후 manifest 깃허브 레파지토리 등록
 
 https://github.com/jominjun94/service-repository 등록 후 수정 배포
+![스크린샷 2023-10-15 001612](https://github.com/jominjun94/EKS-Project/assets/72008472/00ced6ba-8f5d-4340-91d8-a136c9540d6a)
 
 ![2](https://github.com/jominjun94/EKS-Project/assets/72008472/f4b1dfe5-eb92-484f-aee4-5885f18d787c)
 
