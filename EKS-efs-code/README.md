@@ -27,3 +27,5 @@ $ helm upgrade -i aws-efs-csi-driver aws-efs-csi-driver/aws-efs-csi-driver \
 --set controller.serviceAccount.create=false \
 --set controller.serviceAccount.name=efs-csi-controller-sa
 ```
+## aws console
+![스크린샷 2023-10-14 232733](https://github.com/jominjun94/EKS-Project/assets/72008472/e2dea119-028e-4973-b70f-396aca95a55e)
