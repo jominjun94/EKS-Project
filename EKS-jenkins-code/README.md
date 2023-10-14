@@ -10,7 +10,12 @@
 
 
 ## jenkins master + slave 구성 
+
+# 젠킨스 파이프 라인
+
 ![4bdbbad4397c1522](https://github.com/jominjun94/EKS-Project/assets/72008472/4fa923b0-5817-447e-82f2-852c38344595)
+
+# 젠킨스 노드 구성
 
 ![스크린샷 2023-10-15 001039](https://github.com/jominjun94/EKS-Project/assets/72008472/531d1540-2e1e-4134-a712-9c87c43f9a26)
 ### 1. deploy-dockerHub
