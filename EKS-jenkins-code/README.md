@@ -82,3 +82,5 @@ newgrp docker
 ```
 ssh-keygen -t ed25519
 ```
+![스크린샷 2023-10-14 233528](https://github.com/jominjun94/EKS-Project/assets/72008472/b377290d-55aa-4109-af7f-51bc0e526b6a)
+
